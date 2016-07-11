@@ -71,13 +71,11 @@ perform necessary operations to load the item and insert it into the cache.
 
 ### 2. On-The-Fly Transparent Loading / Saving
 
-When specifying a routine to handle the OnLoadItem and OnSaveItem, then CacheLight will automatically let your application know
-when it's time to do something.  
+Specify the OnLoadItem and/or OnSaveItem handlers and  CacheLight will automatically invoke your routines when necessary.
 
 Example: Transparent Loading:  
 
-The application performs  "image = image_cache["boots.png"];". Even though "boots.png" hasn't been loaded, image will NOT contain null. 
-CacheLight will call your OnLoadItem event, and your application will perform the load.  
+The application performs  "image = image_cache["boots.png"];". Even though "boots.png" hasn't been loaded, "image" will NOT contain null. CacheLight will call your OnLoadItem event, and your application will perform the load.  
     
      image_cache.OnLoadItem += LoadImage;
      var image = image_cache["boots.png"]; // image contains the boots.png image data
